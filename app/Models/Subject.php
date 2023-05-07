@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
-    protected $fillable=['name','code','department_id',];
+    protected $fillable=[
+        'name',
+    'code',
+    'department_id',
+];
     public function department(){
         return $this->hasOne(Department::class,'id','department_id');
     }
