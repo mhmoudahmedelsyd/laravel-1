@@ -39,7 +39,12 @@ class TestController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $subject=Subject::where('id','=',$id)->with('Department')->first();
+        return view('subjects.show',
+        [
+            'subject'=>$subject,
+          
+    ]);
     }
 
     /**

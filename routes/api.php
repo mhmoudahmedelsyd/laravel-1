@@ -23,6 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('/test',TestController::class);
+// Route::apiResource('/test/{id}',TestController::class);
+
+
+
 Route::get('/subject',function(){
     $subject=Subject::get();
     return response()->json($subject);
@@ -39,8 +43,7 @@ Route::post('/subject',function(Request $request,Subject $subject){
       ]);
            $subject->Create($formFiled);
 
-            return response()->json(['message'=>'created successfully']);
-
+            return response()->json(['message'=>'created successfully','subject'=>$formFiled]);
 
 });
 
